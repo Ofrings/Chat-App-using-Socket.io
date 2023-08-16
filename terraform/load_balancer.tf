@@ -3,7 +3,7 @@ resource "aws_lb" "omarLB" {
   internal           = false
   load_balancer_type = "application"
   subnets            = [aws_subnet.subnet_a.id, aws_subnet.subnet_b.id]
-
+  security_groups    = [aws_security_group.OmarGroup.id]
   enable_deletion_protection = false
 
   enable_http2 = true
@@ -17,7 +17,7 @@ resource "aws_lb_listener" "omar-lb-listener" {
   load_balancer_arn = aws_lb.omarLB.arn
   port              = 80
   protocol          = "HTTP"
-
+  
   default_action {
     type             = "fixed-response"
     fixed_response {
@@ -36,8 +36,8 @@ resource "aws_security_group" "OmarGroup" {
 
   ingress {
     description      = "TLS from VPC"
-    from_port        = 443
-    to_port          = 443
+    from_port        = 80
+    to_port          = 80
     protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
   }
@@ -50,7 +50,7 @@ resource "aws_security_group" "OmarGroup" {
   }
 
   tags = {
-    Name = "allow_tls"
+    Name = "Security Group"
   }
  
 }
