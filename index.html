@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Friends Talk</title>
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+    <div>
+        <div class="modal fade" id="usernameModal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body row">
+                <form id="usernameForm">
+                    <div class="col-xs-12 col-sm-9">
+                        <input class="form-control" type="text" name="something" id="username" placeholder="Enter a Username">    
+                    </div>
+                    <div class="col-xs-12 col-sm-3">
+                        <button type="submit" id="modalControl" type="button" class="btn btn-primary">Start Chatting!</button>
+                    </div>
+                </form>
+              </div>
+                <p class="error-msg"></p>    
+             
+            </div><!-- /.modal-content -->
+          </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+        <h1 class="center">Friends Talk</h1><br><br>
+        <div id="chatBox">
+            
+            
+        </div><br><br>
+        <form id="messageForm">
+                <span id="userTyping"></span>
+                <input id="message" type="text" name="message">
+        </form>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript" src="/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap.js"></script>
+    <script type="text/javascript" src="/js/script.js"></script>
+</body>
+</html>
